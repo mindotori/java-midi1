@@ -10,7 +10,6 @@ public class TestString2 {
             sum += s.length();
         }
         System.out.println("sum = " + sum);
-
         }
 
     }
