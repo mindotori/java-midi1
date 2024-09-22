@@ -1,14 +1,12 @@
 package enumeration.ref1;
 
-import enumeration.ex2.ClassGrade;
-import enumeration.ex2.DiscountService;
 
-public class ClassGradeEx2_1 {
+public class ClassGradeRefMain1 {
     public static void main(String[] args) {
         int price = 10000;
-        enumeration.ex2.DiscountService discountService = new DiscountService();
-        int basic = discountService.discount(enumeration.ex2.ClassGrade.BASIC, price);
-        int gold = discountService.discount(enumeration.ex2.ClassGrade.GOLD, price);
+        DiscountService discountService = new DiscountService();
+        int basic = discountService.discount(ClassGrade.BASIC, price);
+        int gold = discountService.discount(ClassGrade.GOLD, price);
         int diamond = discountService.discount(ClassGrade.DIAMOND, price);
 
         System.out.println("BASIC 등급의 할인 금액: " + basic);
