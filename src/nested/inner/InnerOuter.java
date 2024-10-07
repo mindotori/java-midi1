@@ -7,7 +7,7 @@ public class InnerOuter {
     private int outInstanceValue = 2; //인스턴스 멤버
 
     class Inner{
-        private int innerInstanceValue = 1;
+        private int innerInstanceValue = 12;
 
         public void print(){
             //자기 자신에 접근
