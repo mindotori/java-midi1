@@ -1,28 +1,31 @@
-package exception.ex2;
+package exception.ex3;
 
-public class NetworkClientV2 {
+
+import exception.ex3.exception.ConnectExceptionV3;
+import exception.ex3.exception.NetworkClientExceptionV3;
+import exception.ex3.exception.SendExceptionV3;
+
+public class NetworkClientV3 {
 
     private final String address;
     public boolean connectError; //true면 연결실패 //boolean 기본값 false
     public boolean sendError; //true면 연결실패
 
-    public NetworkClientV2(String address){
+    public NetworkClientV3(String address){
         this.address = address;
     }
 
-    public void connect() throws NetworkClientExceptionV2 { //체크 예외라 반드시 적어줘야함
+    public void connect() throws ConnectExceptionV3 { //체크 예외라 반드시 적어줘야함
         if(connectError){
-            throw new NetworkClientExceptionV2("connectError", address + " 서버 연결 실패");
+            throw new ConnectExceptionV3(address, address + " 서버 연결 실패");
         }
         //연결 성공
         System.out.println(address + " 서버 연결 성공");
     }
 
-    public void send(String data) throws NetworkClientExceptionV2 {
+    public void send(String data) throws SendExceptionV3 { //예외 세분화
         if(sendError){
-            throw new NetworkClientExceptionV2("sendError", address + " 서버에 데이터 전송 실패: " + data);
-            //중간에 다른 예외가 발생했다고 가정
-            //throw new RuntimeException("ex");
+            throw new SendExceptionV3(data, address + " 서버에 데이터 전송 실패: " + data);
         }
         //전송 성공
         System.out.println(address + " 서버에 데이터 전송: " + data);
